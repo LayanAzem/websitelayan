@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @link_table.role_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @link_table.name %>
+</p>
+
+<p>
+  <strong>Idea:</strong>
+  <%= @link_table.idea_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @link_table.user_id %>
+</p>
+
+<p>
+  <strong>Platform:</strong>
+  <%= @link_table.platform_id %>
+</p>
+
+<%= link_to 'Edit', edit_link_table_path(@link_table) %> |
+<%= link_to 'Back', link_tables_path %>

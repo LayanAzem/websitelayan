@@ -1,0 +1,2 @@
+module LinkTablesHelper
+end
