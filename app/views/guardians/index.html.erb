@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Guardians</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Occupation</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Number of children</th>
+      <th>Relationship to child</th>
+      <th>Preferredlanguage</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @guardians.each do |guardian| %>
+      <tr>
+        <td><%= guardian.firstname %></td>
+        <td><%= guardian.lastname %></td>
+        <td><%= guardian.occupation %></td>
+        <td><%= guardian.email %></td>
+        <td><%= guardian.contact %></td>
+        <td><%= guardian.number_of_children %></td>
+        <td><%= guardian.relationship_to_child %></td>
+        <td><%= guardian.preferredLanguage %></td>
+        <td><%= link_to 'Show', guardian %></td>
+        <td><%= link_to 'Edit', edit_guardian_path(guardian) %></td>
+        <td><%= link_to 'Destroy', guardian, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Guardian', new_guardian_path %>

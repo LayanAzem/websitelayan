@@ -1,0 +1,18 @@
+<%= simple_form_for(@guardian) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :occupation %>
+    <%= f.input :email %>
+    <%= f.input :contact %>
+    <%= f.input :number_of_children %>
+    <%= f.input :relationship_to_child %>
+    <%= f.input :preferredLanguage %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -11,15 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421114809) do
+ActiveRecord::Schema.define(version: 20170318054458) do
+
+  create_table "administrators", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.integer  "access_level"
+    t.string   "contact"
+    t.integer  "school_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "password"
+    t.string   "email"
+  end
+
+  create_table "children", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "age"
+    t.string   "number_of_guardians"
+    t.string   "grade"
+    t.string   "class_number"
+    t.integer  "school_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "guardians", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "occupation"
+    t.string   "email"
+    t.string   "contact"
+    t.string   "number_of_children"
+    t.string   "relationship_to_child"
+    t.string   "preferredLanguage"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "ideas", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.string   "overview"
     t.string   "HelpNeeded"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "skillsNeeded"
   end
 
   create_table "link_tables", force: :cascade do |t|

@@ -1,17 +1,19 @@
 module SessionsHelper
     
-     def log_in(user) 
-        session[:user_id] = user.id 
-    end    
+     def log_in(administrator) 
+        session[:administrator_id] = administrator.id 
+     end    
      
-    def current_user
-        @current_user ||= User.find_by(id: session[:user_id])
+    def current_administrator
+        
+        @current_administrator ||= Administrator.find_by(id: session[:administrator_id])
     end 
     def logged_in?
-            !current_user.nil?    
+            !current_administrator.nil?    
     end
+    
     def log_out 
-        session.delete(:user_id)
-        @current_user = nil 
+        session.delete(:administrator_id)
+        @current_administrator = nil 
     end             
 end

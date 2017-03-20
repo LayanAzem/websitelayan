@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
+  
+  skip_before_action :authenticate
   def new
   end
   
-  skip_before_action :authenticate
-  
-  
   
   def create
-    user = User.find_by(email: params[:sessions][:email].downcase)
-    if user && user.password == params[:sessions][:password]
-    log_in user 
+    administrator = Administrator.find_by(email: params[:sessions][:email].downcase)
+    if administrator && administrator.password == params[:sessions][:password]
+    log_in administrator
     flash[:notice] = 'Logged in'  
     redirect_to root_path
     else

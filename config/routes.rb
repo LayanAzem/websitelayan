@@ -1,33 +1,40 @@
 Rails.application.routes.draw do
-  resources :roles
-  get 'sessions/new'
+ 
 
-  resources :link_tables
-  resources :ideas
-  resources :platforms
-  resources :users
-  root to: 'visitors#index'
+  resources :administrators
+  resources :children
+  resources :guardians
+  resources :roles
   
+ # get 'recent'=> 'ideas#recent'
+ # get 'oldest'=> 'ideas#oldest'
+#  get 'filled'=> 'filled#recent'
+# get 'decend'=> 'ideas#decend'
+#  get 'alphabitizedasc'=> 'ideas#alphabitizedasc'
+ ## #get 'helpNeeded'=> 'ideas#Needed'
+  
+  
+  #get 'about' => '#about'
    
-   get 'sessions/new' => 'sessions#new', as: :login
+  get 'sessions/new' => 'sessions#new', as: :login
   
   post 'sessions/new'  => 'sessions#create'
   
   delete 'visitors/index' => 'sessions#destroy', as: :logout
   
-  get 'users/new' => 'users#new', as: :signup
+  get 'administrators/new' => 'administrators#new', as: :signup
  
 
-  resources :users do
+  resources :administrators do
       get :make_admin, on: :member
   end
   
-  
+  root to: 'visitors#index'
   
   # get 'login' => 'sessions#new'
   # get 'signup' => 'users#new'
   
-  # post 'login' => 'sessions#create'
+  #post 'login' => 'sessions#create'
   # #	post 'signup' => 'session#new'
   # 	post 'signup' => 'users#create'
-end
+end 

@@ -1,18 +1,19 @@
 <%# add navigation links to this file %>
 
-<li><%= link_to 'About','about' %></li>
-
+<li><%= link_to 'Guardians', '/guardians' %></li>
+<li><%= link_to 'Children', '/children' %></li>
 
 <% if logged_in?
-if current_user.admin?%>
-<li><%= link_to 'Jobs', '/ideas' %></li>
 
+if current_administrator.email?%> <%# this email %>
+<%end%>
+<%end%>
 
+<% if logged_in? %>
 
-<li><%= link_to 'Users', '/users' %></li>
+<% if current_administrator.access_level == 1 %>
 
-<li><%= link_to 'Types', '/link_tables' %></li>
-
+<li><%= link_to 'Administrator', '/administrators' %></li>
 
 
 <%end%>
