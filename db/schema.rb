@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318054458) do
+ActiveRecord::Schema.define(version: 20170325080639) do
 
   create_table "administrators", force: :cascade do |t|
     t.string   "firstname"
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 20170318054458) do
     t.string   "grade"
     t.string   "class_number"
     t.integer  "school_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "currentStatusOfChild"
   end
 
   create_table "guardians", force: :cascade do |t|
